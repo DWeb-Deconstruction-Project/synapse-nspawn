@@ -22,7 +22,7 @@ python3 -m pip install --user git+https://github.com/systemd/mkosi.git
 #### To spawn a minimal Synapse homeserver on `localhost:8008`, run:
 ```
 git clone https://github.com/matrix-org/synapse.git
-git clone [THIS REPO]
+git clone https://github.com/DWeb-Deconstruction-Project/synapse-nspawn.git
 cd synapse-nspawn
 sudo -E python3 -m mkosi --build-sources ../synapse --minimize
 sudo systemd-nspawn --machine synapse --settings trusted
