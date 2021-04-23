@@ -1,0 +1,6 @@
+[Exec]
+Boot=yes
+PrivateUsers=yes
+
+[Network]
+VirtualEthernet=no

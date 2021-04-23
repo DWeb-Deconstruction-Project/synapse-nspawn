@@ -1,0 +1,6 @@
+#!/bin/sh
+set -ex
+
+printf '\n\e[1;36m''build and install synapse''\e[0m\n\n'
+
+python3 setup.py install --root "$DESTDIR" --optimize=1 > /dev/null

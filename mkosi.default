@@ -1,0 +1,25 @@
+[Distribution]
+Distribution=debian
+Release=buster
+
+[Output]
+Format=gpt_ext4
+Output=/var/lib/machines/synapse.raw
+
+[Packages]
+NSpawnSettings=synapse.nspawn
+Cache=/var/cache/mkosi
+Packages=
+         build-essential
+         python3-dev
+         libffi-dev
+         python3-pip
+         python3-setuptools
+         sqlite3
+         libssl-dev
+         virtualenv
+         libjpeg-dev
+         libxslt1-dev
+
+[Validation]
+Autologin=yes

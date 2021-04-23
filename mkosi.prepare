@@ -1,0 +1,11 @@
+#!/bin/sh
+set -ex
+
+printf '\n\e[1;36m''upgrade pip & setuptools''\e[0m\n\n'
+
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade setuptools
+
+printf '\n\e[1;36m''install synapse python dependencies''\e[0m\n\n'
+
+python3 -m pip install -e .

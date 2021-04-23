@@ -1,0 +1,24 @@
+#!/bin/sh
+set -ex
+
+if [ "$1" = "build" ]; then
+    # skip postinstall during build step
+    exit 0; fi
+
+printf '\n\e[1;36m''create synapse user & home directory''\e[0m\n\n'
+
+systemd-sysusers
+systemd-tmpfiles --create
+
+printf '\n\e[1;36m''generate synapse config''\e[0m\n\n'
+
+chown synapse:synapse -R /etc/synapse
+su --login synapse --shell /bin/sh --command \
+    "python3 -m synapse.app.homeserver \\
+        --server-name localhost \\
+        --config-path /etc/synapse/homeserver.yaml \\
+        --generate-config --report-stats=no"
+
+printf '\n\e[1;36m''enable synapse systemd service''\e[0m\n\n'
+
+systemctl enable synapse.service
