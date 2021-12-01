@@ -2,6 +2,11 @@
 
 Run [Synapse](https://github.com/matrix-org/synapse) on localhost in a Debian container.
 
+**Note to self**: as of Nov 30 2021, I noticed that recent versions of mkosi produce an image missing `/etc/resolv.conf` and without working name resolution. Unsure why. In the meantime, the following version works:
+```
+python3 -m pip install --user git+https://github.com/systemd/mkosi.git@f9b565e11a7310d69c314f12d4c8d173e3196812
+```
+
 ## Prerequisites (minimum)
 
 - systemd 233 and [systemd-nspawn](https://wiki.archlinux.org/index.php/Systemd-nspawn)
